@@ -11,7 +11,24 @@
 6. Display the employee table
 
 ### Program:
-
+```
+CREATE OR REPLACE PROCEDURE emp_data AS
+    BEGIN
+    INSERT INTO ep(empid,empname,dept,salary)
+    values(1,'SHAKTHI','MD',10000000);
+    INSERT INTO ep(empid,empname,dept,salary)
+    values(2,'ARUN','HR',500000);
+    INSERT INTO ep(empid,empname,dept,salary)
+    values(3,'DHANUSH','IT',200000);
+    COMMIT;
+   FOR emp_rec IN (SELECT * FROM ep)LOOP
+   DBMS_OUTPUT.PUT_LINE('EMPLOYEE ID:'||emp_rec.empid||',EMPLOYEE NAME:'|| emp_rec.empname||
+   ',DEPARTMENT:'||emp_rec.dept||',SALARY:'||emp_rec.salary);
+   END LOOP;
+   END;
+  /
+```
 ### Output:
 
 ### Result:
+THE PROGRAM HAS BEEN IMPLEMENTED SUCCESSFULLY
